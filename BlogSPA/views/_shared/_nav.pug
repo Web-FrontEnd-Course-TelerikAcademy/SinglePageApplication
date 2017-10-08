@@ -1,0 +1,39 @@
+mixin nav()
+    //script(src="/static/js/nav.js")
+    nav.navbar.navbar-inverse
+        div.container-fluid
+            div.navbar-header
+                a.navbar-brand(href="/")
+                    | Logo
+            div.collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href="/")
+                            | Home
+                    li
+                        a(href="/blog/get-posts")
+                            | Blog
+                ul.nav.navbar-nav.navbar-right
+                    li.dropdown
+                        a.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+                            if user
+                                =user.username
+                                span.caret
+                            else
+                                | User
+                                span.caret
+                        ul.dropdown-menu
+                            if user
+                                li
+                                    a.btn.btn-default.btn-block(href="/auth/profile")
+                                        | View Profile
+                                li
+                                    form(action="/auth/sign-out" method="post")
+                                        input.btn.btn-default.btn-block(type="submit", value="Sign Out")
+                            else
+                                li
+                                    a.btn.btn-default.btn-block(href="/auth/sign-in")
+                                        | Sign In
+                                li
+                                    a.btn.btn-default.btn-block(href="/auth/sign-up")
+                                        | Sign Up
