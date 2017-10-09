@@ -1,5 +1,95 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    background-color: white;
+}
+
+header {
+    height: 50vh;
+    background: url('/static/images/header.gif');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#myCarousel .carousel-inner {
+    height: 35vh;
+}
+
+    .carousel-caption h3 {
+        font-size: 2.5em;
+    }
+
+    .carousel-caption p {
+        font-size: 1.5em;
+        color: #738d7d;
+        font-style: italic;
+    }
+
+    #myCarousel .carousel-inner img {
+        height: 27vh;
+        opacity: 0;   
+    }
+
+span.headerSlogan,
+footer * {
+    color: #738d7d;
+}
+
+nav {
+    border: 0px solid black;
+    border-radius: 15px!important;
+    background: #508387;
+    background: -moz-linear-gradient(top, #508387 51%, #7db9e8 51%, #4c7c80 51%);
+    background: -webkit-linear-gradient(top, #508387 51%,#7db9e8 51%,#4c7c80 51%);
+    background: linear-gradient(to bottom, #508387 51%,#7db9e8 51%,#4c7c80 51%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#508387', endColorstr='#4c7c80',GradientType=0 );
+}
+
+    nav ul li a {
+        font-size: 1em;
+        color: black!important;
+    }
+
+    nav ul li a:hover {
+        color: #9d9d9d!important;
+    }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 25vh;
+    background: url('/static/images/footer.gif');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+    footer #footerNav {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 5vh;
+        background-color: #131c18;
+    }
+
+    .carousel-inner a {
+        background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+    } 
+
 nav[class="navbar navbar-inverse"] {
     border-radius: 0;
+}
+
+ul.dropdown-menu {
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 ul.dropdown-menu li a,
@@ -7,8 +97,16 @@ ul.dropdown-menu li input[type="submit"] {
     padding-top: 7px;
     height: 35px;
     border: none;
-    border-radius: 0;
+    border-radius: 0px 0px 4px 4px;
+    text-align: left;
 }
+
+    ul.dropdown-menu li a:before {
+        margin-right: 10px;
+        font-size: 0.5em;
+        color: #758b8d;
+        content: "> ";
+    }
 
     ul.dropdown-menu li a:hover,
     ul.dropdown-menu li input[type="submit"]:hover {

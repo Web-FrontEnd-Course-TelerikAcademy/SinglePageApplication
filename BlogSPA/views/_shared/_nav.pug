@@ -1,39 +1,72 @@
 mixin nav()
     //script(src="/static/js/nav.js")
-    nav.navbar.navbar-inverse
-        div.container-fluid
-            div.navbar-header
-                a.navbar-brand(href="/")
-                    | Logo
-            div.collapse.navbar-collapse
-                ul.nav.navbar-nav
-                    li
-                        a(href="/")
-                            | Home
-                    li
-                        a(href="/blog/get-posts")
-                            | Blog
-                ul.nav.navbar-nav.navbar-right
-                    li.dropdown
-                        a.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
-                            if user
-                                =user.username
-                                span.caret
-                            else
-                                | User
-                                span.caret
-                        ul.dropdown-menu
-                            if user
-                                li
-                                    a.btn.btn-default.btn-block(href="/auth/profile")
-                                        | View Profile
-                                li
-                                    form(action="/auth/sign-out" method="post")
-                                        input.btn.btn-default.btn-block(type="submit", value="Sign Out")
-                            else
-                                li
-                                    a.btn.btn-default.btn-block(href="/auth/sign-in")
-                                        | Sign In
-                                li
-                                    a.btn.btn-default.btn-block(href="/auth/sign-up")
-                                        | Sign Up
+    div.row
+        div.col-md-4
+            a(href="/")
+                img(src="/static/images/logo.gif", alt="No logo")
+            span.headerSlogan
+                | Always your favourite blog
+        div.col-md-8
+            nav.navbar.navbar-inverse
+                div.container-fluid
+                    div.collapse.navbar-collapse
+                        a.navbar-brand(href="#")
+                        ul.nav.navbar-nav
+                            li
+                                a(href="/")
+                                    | Home
+                            li
+                                a(href="/blog/get-posts")
+                                    | Blog
+                        ul.nav.navbar-nav
+                            li.dropdown
+                                a.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+                                    if user
+                                        =user.username
+                                        span.caret
+                                    else
+                                        | User
+                                        span.caret
+                                ul.dropdown-menu
+                                    if user
+                                        li
+                                            a.btn.btn-default.btn-block(href="/auth/profile")
+                                                | View Profile
+                                        li
+                                            form(action="/auth/sign-out" method="post")
+                                                input.btn.btn-default.btn-block(type="submit", value="Sign Out")
+                                    else
+                                        li
+                                            a.btn.btn-default.btn-block(href="/auth/sign-in")
+                                                | Sign In
+                                        li
+                                            a.btn.btn-default.btn-block(href="/auth/sign-up")
+                                                | Sign Up
+    div.row
+        div#myCarousel.carousel.slide(data-ride="carousel")
+            ol.carousel-indicators
+                li.active(data-target="#myCarousel", data-slide-to="0")
+                li(data-target="#myCarousel", data-slide-to="1")
+            div.carousel-inner(role="listbox")
+                div.item.active.left
+                    img(src="", alt="Image")
+                    div.carousel-caption
+                        h3
+                            | This is your favourite blog
+                        p
+                            | "Create a post and explore the functionalities in it"
+                div.item.next.left
+                    img(src="", alt="Image")
+                    div.carousel-caption
+                        h3
+                            | Building Websites Has Never Been Easier
+                        p
+                            | "Join today and gift your business with a beautiful online presence"
+                a.left.carousel-control(href="#myCarousel", role="button", data-slide="prev")
+                    span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+                    span.sr-only
+                        | Previous
+                a.right.carousel-control(href="#myCarousel", role="button", data-slide="next")
+                    span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+                    span.sr-only
+                        | Next

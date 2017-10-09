@@ -1,0 +1,61 @@
+footer.footer
+    div.container
+        div.row
+            div.col-md-4
+              div.card.h-100
+                div.card-body
+                    h4.card-title
+                        | Blog SPA Front-End App
+                    h5
+                        | Create your post!
+                    p.card-text
+                        | Created by a fully sophisticated web developer
+            div.col-md-4
+              div.card.h-100
+                div.card-body
+                    h4.card-title
+                        | Recent Posts
+                    p.card-text
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+            div.col-md-4
+              div.card.h-100
+                div.card-body
+                    h4.card-title
+                        | Rise your altitude
+                    h5
+                        | Show your strength
+                    p.card-text
+                        | What are you good at?
+    #footerNav
+        div.container
+            ul.nav.navbar-nav
+                li
+                    a(href="/")
+                        | Home
+                li
+                    a(href="/blog/get-posts")
+                        | Blog
+            ul.nav.navbar-nav.dropup
+                li.dropdown
+                    a.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+                        if user
+                            =user.username
+                            span.caret
+                        else
+                            | User
+                            span.caret
+                    ul.dropdown-menu
+                        if user
+                            li
+                                a.btn.btn-default.btn-block(href="/auth/profile")
+                                    | View Profile
+                            li
+                                form(action="/auth/sign-out" method="post")
+                                    input.btn.btn-default.btn-block(type="submit", value="Sign Out")
+                        else
+                            li
+                                a.btn.btn-default.btn-block(href="/auth/sign-in")
+                                    | Sign In
+                            li
+                                a.btn.btn-default.btn-block(href="/auth/sign-up")
+                                    | Sign Up
