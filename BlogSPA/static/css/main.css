@@ -133,9 +133,43 @@ img.profile-img-card {
 }
 
 /* Home */
-
 span.headerSlogan,
 #mainHome *,
+#posts .card-body *,
 footer * {
     color: #738d7d;
+}
+
+/* Blog */
+#blogNav {
+    margin-top: 20vh;
+}
+
+#blogNav h2 {
+    font-size: 3em;
+    color: white;
+}
+#blogNav em {
+    font-size: 2em;
+    color: #738d7d;
+}
+
+#posts .card {
+    margin-top: 45px;
+}
+
+#posts .card-text {
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#posts .card-body em,
+#posts .card-body p {
+    font-size: 1.2em;
+}
+
+#postDescription {
+    margin-top: 30px;
+    font-size: 1.5em;
 }

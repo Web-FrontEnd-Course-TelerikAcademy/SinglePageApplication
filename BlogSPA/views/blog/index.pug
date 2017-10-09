@@ -1,2 +1,8 @@
 //- extends ../_shared/_master
 block body
+    if user
+        a(href="/#blog/createPost")
+            | Create Post
+    div.row
+        div#posts.col-md-8
+        

@@ -45,7 +45,7 @@ mixin nav()
                                         li
                                             a.btn.btn-default.btn-block(href="/#auth/sign-up")
                                                 | Sign Up
-    div.row
+    div#homeNav.row
         div#myCarousel.carousel.slide(data-ride="carousel")
             ol.carousel-indicators
                 li.active(data-target="#myCarousel", data-slide-to="0")
@@ -73,3 +73,6 @@ mixin nav()
                     span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
                     span.sr-only
                         | Next
+    div#blogNav.row        
+        h2#postTitle.card-title
+        em#postInfo

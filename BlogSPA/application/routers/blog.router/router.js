@@ -8,9 +8,9 @@ const attachTo = (app, data) => {
     const controller = require("./controller").init(data);
 
     router
-        // .get("/merge-post", (req, res) => {
-        //     return controller.getMergePost(req, res);
-        // })
+        .get("/get-posts", (req, res) => {
+            return controller.getPosts(req, res);
+        })
         // .post("/merge-post", (req, res) => {
         //     return controller.mergePost(req, res);
         // })
