@@ -37,6 +37,10 @@ header {
         opacity: 0;   
     }
 
+#main {
+    margin-bottom: 300px;
+}
+
 span.headerSlogan,
 footer * {
     color: #738d7d;

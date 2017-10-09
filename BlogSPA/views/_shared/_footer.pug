@@ -30,10 +30,10 @@ footer.footer
         div.container
             ul.nav.navbar-nav
                 li
-                    a(href="/")
+                    a(href="/#")
                         | Home
                 li
-                    a(href="/blog/get-posts")
+                    a(href="/#blog")
                         | Blog
             ul.nav.navbar-nav.dropup
                 li.dropdown
@@ -47,15 +47,15 @@ footer.footer
                     ul.dropdown-menu
                         if user
                             li
-                                a.btn.btn-default.btn-block(href="/auth/profile")
+                                a.btn.btn-default.btn-block(href="/#auth/profile")
                                     | View Profile
                             li
                                 form(action="/auth/sign-out" method="post")
                                     input.btn.btn-default.btn-block(type="submit", value="Sign Out")
                         else
                             li
-                                a.btn.btn-default.btn-block(href="/auth/sign-in")
+                                a.btn.btn-default.btn-block(href="/#auth/sign-in")
                                     | Sign In
                             li
-                                a.btn.btn-default.btn-block(href="/auth/sign-up")
+                                a.btn.btn-default.btn-block(href="/#auth/sign-up")
                                     | Sign Up

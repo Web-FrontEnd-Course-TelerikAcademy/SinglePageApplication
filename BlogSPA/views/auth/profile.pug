@@ -1,12 +1,15 @@
-extends ../_shared/_master
+//- extends ../_shared/_master
 block body
     div.row.main
         div.panel-heading
             div.panel-title.text-center
                 h1.title
-                    |"
-                    =user.username 
-                    |" Profile
+                    if user && user.username
+                        |"
+                        =user.username 
+                        |" Profile
+                    else
+                    | ""
                 hr
         p.profile-name-card.text-danger
             != issueMessage
@@ -16,8 +19,10 @@ block body
                     label.control-label(for="username")
                         | Username
                     div.input-group
-                        input.form-control(type="text", name="username", placeholder="Enter username", readonly="true", value=user.username)
-                
+                        if user && user.username
+                            input.form-control(type="text", name="username", placeholder="Enter username", readonly="true", value=user.username)
+                        else 
+                            input.form-control(type="text", name="username", placeholder="Enter username", readonly="true", value="")
                 div.form-group
                     label.control-label(for="password")
                         | Change Password
@@ -34,8 +39,11 @@ block body
                     label.control-label(for="email")
                         | Email
                     div.input-group
-                        input.form-control(type="email", name="email", placeholder="Enter email", value=user.email)
-
-                div.form-group
-                    button.btn.btn-primary.btn-lg.btn-block.login-button(type="submit")
-                        | Update Profile
+                        if user && user.email
+                            input.form-control(type="email", name="email", placeholder="Enter email", value=user.email)
+                        else
+                            input.form-control(type="email", name="email", placeholder="Enter email", value="")
+                if user
+                    div.form-group
+                        button.btn.btn-primary.btn-lg.btn-block.login-button(type="submit")
+                            | Update Profile

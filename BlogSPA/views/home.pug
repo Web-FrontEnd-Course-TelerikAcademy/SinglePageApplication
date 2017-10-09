@@ -1,4 +1,21 @@
 extends _shared/_master
 block body
-    h1
-        | This is a Home Page
+    div.mainframe(id="#")
+        h1
+            | This is a Home Page
+    div.mainframe(id="auth/profile")
+        include auth/profile
+    div.mainframe(id="auth/sign-in")
+        include auth/sign-in
+    div.mainframe(id="auth/sign-up")
+        include auth/sign-up
+    div.mainframe(id="blog")
+        include blog/index
+    div.mainframe(id="blog/post")
+        include blog/post
+    div.mainframe(id="blog/createPost")
+        include blog/createPost
+    div.mainframe(id="notFound")
+        include notFound/index
+    div.mainframe(id="unauthorized")
+        include unauthorized/index
