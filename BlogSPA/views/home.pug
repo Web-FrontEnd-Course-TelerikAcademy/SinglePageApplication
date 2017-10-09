@@ -1,8 +1,7 @@
 extends _shared/_master
 block body
     div.mainframe(id="#")
-        h1
-            | This is a Home Page
+        include home/index
     div.mainframe(id="auth/profile")
         include auth/profile
     div.mainframe(id="auth/sign-in")

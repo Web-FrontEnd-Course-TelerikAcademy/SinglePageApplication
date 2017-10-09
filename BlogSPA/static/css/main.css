@@ -41,11 +41,6 @@ header {
     margin-bottom: 300px;
 }
 
-span.headerSlogan,
-footer * {
-    color: #738d7d;
-}
-
 nav {
     border: 0px solid black;
     border-radius: 15px!important;
@@ -135,4 +130,12 @@ img.profile-img-card {
 [class="main-login main-center"] .login-register a {
     display: block;
     text-align: center;
+}
+
+/* Home */
+
+span.headerSlogan,
+#mainHome *,
+footer * {
+    color: #738d7d;
 }
