@@ -1,9 +1,14 @@
 var Service = (function () {
     var self = this;
-    self.getAjax = function() {
-        alert("Test");
+    self.ajaxRequest = function(requestType, url, data) {
+        return $.ajax({
+            type: requestType,
+            url: url,
+            dataType: "json",
+            data: data
+        });
     };
     return {
-        getAjax: self.getAjax
+        ajaxRequest: self.ajaxRequest
     };
 }());

@@ -22,7 +22,7 @@ const attachTo = (app, data) => {
     
     
     app.get('*', function(req, res) {
-        res.render('notFound/index');
+        res.redirect('/#notFound');
     });
 };
 

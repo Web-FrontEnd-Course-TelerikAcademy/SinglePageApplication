@@ -8,15 +8,6 @@ const attachTo = (app, data) => {
     const controller = require("./controller").init(data);
 
     router
-        .get("/profile", (req, res) => {
-            return controller.getProfile(req, res);
-        })
-        .get("/sign-up", (req, res) => {
-            return controller.getSignUpForm(req, res);
-        })
-        .get("/sign-in", (req, res) => {
-            return controller.getSignInForm(req, res);
-        })
         .post("/sign-out", (req, res) => {
             return controller.signOut(req, res);
         })
@@ -24,14 +15,11 @@ const attachTo = (app, data) => {
             return controller.signUp(req, res);
         })
         .post("/sign-in", passport.authenticate("local", {
-            successRedirect: "/",
-            failureRedirect: "/auth/sign-in",
+            successRedirect: "/#",
+            failureRedirect: "/#auth/sign-in",
             //failureFlash: true,
             failureFlash: "Invalid username or password"
-        }))
-        .post("/modify-user", (req, res) => {
-            return controller.modifyUser(req, res);
-        });
+        }));
 
     app.use("/auth", router);
 };

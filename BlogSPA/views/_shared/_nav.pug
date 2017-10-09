@@ -25,7 +25,7 @@ mixin nav()
                             li.dropdown
                                 a.dropdown-toggle(data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
                                     if user
-                                        =user.username
+                                        =user
                                         span.caret
                                     else
                                         | User
@@ -35,9 +35,9 @@ mixin nav()
                                         li
                                             a.btn.btn-default.btn-block(href="/#auth/profile")
                                                 | View Profile
-                                        li
+                                        li 
                                             form(action="/auth/sign-out" method="post")
-                                                input.btn.btn-default.btn-block(type="submit", value="Sign Out")
+                                                input.btn.btn-default.btn-block(type="submit", value="Sign Out", style="padding-left: 35px;")
                                     else
                                         li
                                             a.btn.btn-default.btn-block(href="/#auth/sign-in")

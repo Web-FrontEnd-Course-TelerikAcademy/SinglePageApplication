@@ -9,17 +9,11 @@ const config = require("../../config");
 const applyTo = (app, data) => {
     passport.use(new Strategy((username, password, done) => {
         data.users.checkPassword(username, password)
-            .then((returnData) => {
-                if (returnData.status) {
-                    return data.users.findByUsername(username);
-                }
-                return "Please try again";
-            })
             .then((user) => {
-                if (typeof user == "string") {
-                    done(null, false, { issueMessage: user });
+                if (user.user.error) {
+                    done(null, false, { issueMessage: user.user.error + ": " + user.user.description });
                 } else {
-                    done(null, user);
+                    done(null, user.user);
                 }
             })
             .catch((err) => {
@@ -37,14 +31,11 @@ const applyTo = (app, data) => {
     app.use(passport.session());
 
     passport.serializeUser((user, done) => {
-        done(null, user._id);
+        done(null, user.username);
     });
 
     passport.deserializeUser((id, done) => {
-        data.users.findById(id)
-            .then((user) => {
-                done(null, user);
-            }).catch(done);
+        done(null, id);
     });
 
     app.use((req, res, next) => {
