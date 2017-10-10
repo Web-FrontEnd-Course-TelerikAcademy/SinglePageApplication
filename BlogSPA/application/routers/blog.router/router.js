@@ -11,12 +11,9 @@ const attachTo = (app, data) => {
         .get("/get-posts", (req, res) => {
             return controller.getPosts(req, res);
         })
-        // .post("/merge-post", (req, res) => {
-        //     return controller.mergePost(req, res);
-        // })
-        // .post("/modify-status", (req, res) => {
-        //     return controller.modifyStatus(req, res);
-        // });
+        .post("/createPost", (req, res) => {
+            return controller.createPost(req, res);
+        });
 
     app.use("/blog", router);
 };

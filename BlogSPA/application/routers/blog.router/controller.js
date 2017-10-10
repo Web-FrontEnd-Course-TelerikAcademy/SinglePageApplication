@@ -11,7 +11,7 @@ class BlogController {
     getPosts(req, res) {
         var options = {
             method: 'GET',
-            url: 'https://baas.kinvey.com/appdata/kid_SJw3tuDn-/posts',
+            url: 'https://baas.kinvey.com/appdata/kid_SJw3tuDn-/posts?query={}&sort={"postCreateDate": -1}',
             headers: {
                 'cache-control': 'no-cache',
                 authorization: configFile.kinveyAuthorization
@@ -22,6 +22,36 @@ class BlogController {
             if (error) throw new Error(error);
 
             var requestResponse = JSON.parse(body);            
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.write(JSON.stringify({data: requestResponse}));
+            res.end();
+        });
+    }
+
+    createPost(req, res) {
+        const bodyPost = req.body;
+        
+        var options = {
+            method: 'POST',
+            url: 'https://baas.kinvey.com/appdata/kid_SJw3tuDn-/posts',
+            headers: {
+                'cache-control': 'no-cache',
+                authorization: configFile.kinveyAuthorization,
+                'content-type': 'application/json'
+            },
+            body: { 
+                postUser: bodyPost.username, 
+                postCreateDate: new Date(Date.now()),
+                postTitle: bodyPost.title,
+                postDescription: bodyPost.description
+            },
+            json: true
+        };
+
+        this.data.users.db(options, function (error, response, body) {
+            if (error) throw new Error(error);
+
+            var requestResponse = body;            
             res.writeHead(200, { "Content-Type": "application/json" });
             res.write(JSON.stringify({data: requestResponse}));
             res.end();

@@ -21,9 +21,31 @@ var ViewModel = function () {
             case "blog/post":
                 loadPost(currentQuery);
                 break;
+            case "blog/createPost": {
+                document.getElementById("postTitle").innerText = "";
+                document.getElementById("postInfo").innerText = "";
+            } break;
         };
         document.getElementById(currentHash.length > 0 ? currentHash : "#").style.display = "block";
         return true;
+    };
+
+    // Create post
+    self.createPost = function () {
+        var title = $('[name="postTitle"]').val().trim(),
+            description = $('[name="postDescription"]').val().trim(),
+            username = $('[name="postUsername"]').val().trim();
+
+        if (title.length == 0 || description.length == 0) {
+            return;
+        }
+        Service.ajaxRequest("POST", "/blog/createPost", {
+            title: title,
+            description: description,
+            username: username
+        }).done(function (res) {
+            window.location.hash = "#blog";
+        });
     };
 
     function loadAllPosts() {
@@ -37,7 +59,7 @@ var ViewModel = function () {
                     html += '<div class="card mb-4">' +
                     '<div class="card-body">' +
                     '  <h2 class="card-title">' + res.data[i]["postTitle"] + '</h2>' +
-                    '  <em><p>Posted by <strong>' + res.data[i]["postUser"] + '</strong> on ' + res.data[i]["postCreateDate"] + '</p></em>' +
+                    '  <em><p>Posted by <strong>' + res.data[i]["postUser"] + '</strong> on ' + res.data[i]["postCreateDate"].replace("T", ", ").substring(0, res.data[i]["postCreateDate"].lastIndexOf(":") + 1) + '</p></em>' +
                     '  <p class="card-text">' + res.data[i]["postDescription"] + '</p> ' +
                     '  <a href="/#blog/post?id=' + res.data[i]["_id"] + '" class="btn btn-default pull-right">Read More</a>' +
                     '</div>' +
@@ -62,7 +84,7 @@ var ViewModel = function () {
 
                 if (requestedObject.length > 0) {
                     document.getElementById("postTitle").innerText = requestedObject[0]["postTitle"];
-                    document.getElementById("postInfo").innerHTML = '<p>Posted by <strong>' + requestedObject[0]["postUser"] + '</strong> on ' + requestedObject[0]["postCreateDate"] + '</p>';
+                    document.getElementById("postInfo").innerHTML = '<p>Posted by <strong>' + requestedObject[0]["postUser"] + '</strong> on ' + requestedObject[0]["postCreateDate"].replace("T", ", ").substring(0, requestedObject[0]["postCreateDate"].lastIndexOf(":") + 1) + '</p>';
                     document.getElementById("postDescription").innerText = requestedObject[0]["postDescription"];
                 }
             });
