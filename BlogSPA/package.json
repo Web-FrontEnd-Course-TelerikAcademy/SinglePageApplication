@@ -1,0 +1,28 @@
+{
+  "name": "blogspa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "deferred": "^0.7.8",
+    "express": "^4.15.3",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.4",
+    "kinvey-node-sdk": "^3.8.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "moment": "^2.18.1",
+    "pug": "^2.0.0-rc.4",
+    "request": "^2.83.0",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
