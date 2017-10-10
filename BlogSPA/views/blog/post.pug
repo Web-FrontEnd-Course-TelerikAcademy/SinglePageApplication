@@ -5,3 +5,21 @@ block body
             div.card.mb-4
                 div.card-body
                     p#postDescription.card-text
+
+
+    if user
+        div.row
+            div.card.my-4
+                h5.card-header
+                    | Leave comment: 
+                div.card-body                
+                    div.form-group
+                        div.input-group
+                            input.form-control(type="hidden", name="commentUsername", value=user)
+                    div.form-group
+                        textarea.form-control(rows="3", name="commentDescription")
+                    button.btn.btn-primary(onclick="Controller.addComment()")
+                        | Submit
+
+    div.row
+        div#postComments.col-md-8

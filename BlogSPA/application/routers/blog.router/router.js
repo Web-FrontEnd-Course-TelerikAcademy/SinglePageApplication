@@ -11,8 +11,14 @@ const attachTo = (app, data) => {
         .get("/get-posts", (req, res) => {
             return controller.getPosts(req, res);
         })
+        .get("/get-comments", (req, res) => {
+            return controller.getComments(req, res);
+        })
         .post("/createPost", (req, res) => {
             return controller.createPost(req, res);
+        })
+        .post("/createComment", (req, res) => {
+            return controller.createComment(req, res);
         });
 
     app.use("/blog", router);

@@ -10,9 +10,13 @@ var Controller = (function () {
     self.createPost = function () {
         model.createPost();
     };
+    self.addComment = function () {
+        model.addComment();
+    };
     return {
         init: self.init,
-        createPost: self.createPost
+        createPost: self.createPost,
+        addComment: self.addComment
     };
 }());
 

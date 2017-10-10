@@ -177,3 +177,7 @@ footer * {
 input {
     width: 100% !important;
 }
+
+#postComments {
+    margin-top: 30px;
+}
